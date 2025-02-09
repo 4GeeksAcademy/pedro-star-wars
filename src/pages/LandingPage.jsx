@@ -24,19 +24,21 @@ const isFavorited=(id,type)=>{
 
 
     useEffect(() => {
-        fetch("https://www.swapi.tech/api/people")
+        fetch("https://ubiquitous-space-pancake-rx44x54wpv6cxp65-3000.app.github.dev/character",{ method: "GET" })
             .then((res) => res.json())
-            .then((data) => setpeopleList(data.results))
+            .then((data) => {setpeopleList(data.content)
+                console.log(data.content)
+            })
             .catch((err) => console.error(err))
 
-        fetch("https://www.swapi.tech/api/planets")
+        fetch("https://ubiquitous-space-pancake-rx44x54wpv6cxp65-3000.app.github.dev/planet",{ method: "GET" })
             .then((res) => res.json())
-            .then((data) => setplanetList(data.results))
+            .then((data) => setplanetList(data.content))
             .catch((err) => console.error(err))
 
-        fetch("https://www.swapi.tech/api/species")
+        fetch("https://ubiquitous-space-pancake-rx44x54wpv6cxp65-3000.app.github.dev/species",{ method: "GET" })
             .then((res) => res.json())
-            .then((data) => setspeciesList(data.results))
+            .then((data) => setspeciesList(data.content))
             .catch((err) => console.error(err))
 
     }, [])
